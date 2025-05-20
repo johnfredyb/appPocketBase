@@ -1,3 +1,3 @@
-const apiUrl = "http://127.0.0.1:8090";
+const pb = new PocketBase('http://127.0.0.1:8090'); // Cambia la URL si tu backend no es local
 
-console.log("Connecting to PocketBase at", apiUrl);
+console.log('Conectado a PocketBase:', pb.baseUrl);
