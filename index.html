@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web PocketBase</title>
-    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.12.0/dist/pocketbase.min.js"></script>
+    <script src="js/pocketbase.umd.js" defer></script>
+    <script src="js/script.js" defer></script>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div id="app">
-        <h1>Web PocketBase</h1>
+        <h1>Gestión de Usuarios</h1>
+
+        <!-- Formulario de Login -->
+        <div id="login-form">
+            <h2>Iniciar sesión</h2>
+            <form id="login" onsubmit="event.preventDefault(); handleLogin();">
+                <input type="email" id="email" placeholder="Correo" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+
+        <!-- Sección de Usuarios -->
+        <div id="user-list" style="display: none;">
+            <h2>Lista de Usuarios</h2>
+            <ul id="users"></ul>
+
+            <!-- Botón para Crear un Nuevo Usuario -->
+            <button onclick="showCreateUserForm()">Nuevo Usuario</button>
+        </div>
+
+        <!-- Formulario para Crear o Editar Usuario -->
+        <div id="create-user-form" style="display: none;">
+            <h2 id="form-title">Nuevo Usuario</h2>
+            <form id="create-user" onsubmit="event.preventDefault(); handleCreateUser();">
+                <input type="email" id="create-email" placeholder="Correo" required>
+                <input type="password" id="create-password" placeholder="Contraseña" required>
+                <button type="submit">Guardar</button>
+                <button type="button" onclick="cancelCreateUser()">Cancelar</button>
+            </form>
+        </div>
     </div>
-    <script src="js/script.js"></script>
-    
 </body>
+
 </html>
